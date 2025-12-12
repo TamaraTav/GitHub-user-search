@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import Search from "./Search";
 import User from "./User";
@@ -7,9 +7,6 @@ function App() {
   // get login from search bar
   const [value, setValue] = useState("octocat");
   const [theme, setTheme] = useState(false);
-
-  //github user api
-  let api = "https://api.github.com/users/" + value;
 
   // get users information
   const [message, setMessage] = useState();
@@ -26,26 +23,34 @@ function App() {
   const [blog, setBlog] = useState();
   const [company, setCompany] = useState();
 
-  // convert user join info
-  const fetchUsers = async () => {
-    let response = await fetch(api);
-    let data = await response.json();
-    setMessage(data.message);
-    setPhoto(data.avatar_url);
-    setName(data.name);
-    setLogin(data.login);
-    setJoin(data.created_at);
-    setBio(data.bio);
-    setRepos(data.public_repos);
-    setFollowers(data.followers);
-    setFollowing(data.following);
-    setLocation(data.location);
-    setTwitter(data.twitter_username);
-    setBlog(data.blog);
-    setCompany(data.company);
-  };
+  // fetch user data from GitHub API
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const api = "https://api.github.com/users/" + value;
+      try {
+        const response = await fetch(api);
+        const data = await response.json();
+        setMessage(data.message);
+        setPhoto(data.avatar_url);
+        setName(data.name);
+        setLogin(data.login);
+        setJoin(data.created_at);
+        setBio(data.bio);
+        setRepos(data.public_repos);
+        setFollowers(data.followers);
+        setFollowing(data.following);
+        setLocation(data.location);
+        setTwitter(data.twitter_username);
+        setBlog(data.blog);
+        setCompany(data.company);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setMessage("Error");
+      }
+    };
 
-  fetchUsers();
+    fetchUsers();
+  }, [value]);
 
   if (message !== "Not Found") {
     return (
