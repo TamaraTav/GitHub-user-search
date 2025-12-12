@@ -8,7 +8,7 @@ function App() {
   // get login from search bar
   const [value, setValue] = useState("octocat");
   const [theme, setTheme] = useState(false);
-  
+
   //github user api
   let api = "https://api.github.com/users/" + value;
 
@@ -48,7 +48,7 @@ function App() {
 
   fetchUsers();
 
-  if (message != "Not Found") {
+  if (message !== "Not Found") {
     return (
       <Body theme={theme}>
         <div className="section">

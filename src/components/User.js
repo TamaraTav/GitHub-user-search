@@ -4,9 +4,9 @@ import location from "../assets/icon-location.svg";
 import website from "../assets/icon-website.svg";
 import twitter from "../assets/icon-twitter.svg";
 import company from "../assets/icon-company.svg";
+import ntdmn from "number-to-date-month-name";
 
 function User(props) {
-  var ntdmn = require("number-to-date-month-name");
   return (
     <UserInfo theme={props.theme}>
       <div className="section1">
