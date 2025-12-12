@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-  background-color: ${(props) => (props.theme === true ? "#F2F2F2" : "#141D2F")};
+  background-color: ${(props) =>
+    props.theme === true ? "#F2F2F2" : "#141D2F"};
   height: 100vh;
   color: ${(props) => (props.theme === true ? "#4B6A9B" : "#FFFFFF")};
   transition: 0.5s;
@@ -28,5 +29,20 @@ export const Body = styled.div`
       margin-right: 100px;
     }
   }
-`;
 
+  .loading {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-size: 16px;
+    color: ${(props) => (props.theme === true ? "#4B6A9B" : "#FFFFFF")};
+    @media (min-width: 1300px) {
+      font-size: 18px;
+    }
+    p {
+      font-weight: bold;
+    }
+  }
+`;

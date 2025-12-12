@@ -8,6 +8,9 @@ function App() {
   const [value, setValue] = useState("octocat");
   const [theme, setTheme] = useState(false);
 
+  // loading state
+  const [loading, setLoading] = useState(false);
+
   // get users information
   const [message, setMessage] = useState();
   const [photo, setPhoto] = useState();
@@ -26,6 +29,7 @@ function App() {
   // fetch user data from GitHub API
   useEffect(() => {
     const fetchUsers = async () => {
+      setLoading(true);
       const api = "https://api.github.com/users/" + value;
       try {
         const response = await fetch(api);
@@ -46,23 +50,33 @@ function App() {
       } catch (error) {
         console.error("Error fetching user data:", error);
         setMessage("Error");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchUsers();
   }, [value]);
 
-  if (message !== "Not Found") {
-    return (
-      <Body theme={theme}>
-        <div className="section">
-          <Search
-            setValue={setValue}
-            placeholder={"Search GitHub username…"}
-            value={value}
-            theme={theme}
-            setTheme={setTheme}
-          />
+  return (
+    <Body theme={theme}>
+      <div className="section">
+        <Search
+          setValue={setValue}
+          placeholder={"Search GitHub username…"}
+          value={value}
+          theme={theme}
+          setTheme={setTheme}
+        />
+        {loading ? (
+          <div className="loading">
+            <p>Loading...</p>
+          </div>
+        ) : message === "Not Found" ? (
+          <div className="val">
+            <p>No results</p>
+          </div>
+        ) : (
           <User
             theme={theme}
             value={value}
@@ -79,26 +93,10 @@ function App() {
             blog={blog}
             company={company}
           />
-        </div>
-      </Body>
-    );
-  } else {
-    return (
-      <Body theme={theme}>
-        <div className="section">
-          <Search
-            setValue={setValue}
-            value={value}
-            theme={theme}
-            setTheme={setTheme}
-          />
-          <div className="val">
-            <p>No results</p>
-          </div>
-        </div>
-      </Body>
-    );
-  }
+        )}
+      </div>
+    </Body>
+  );
 }
 
 export default App;
