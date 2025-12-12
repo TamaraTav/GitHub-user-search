@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-  background-color: ${(props) => (props.theme == true ? "#F2F2F2" : "#141D2F")};
+  background-color: ${(props) => (props.theme === true ? "#F2F2F2" : "#141D2F")};
   height: 100vh;
-  color: ${(props) => (props.theme == true ? "#4B6A9B" : "#FFFFFF")};
+  color: ${(props) => (props.theme === true ? "#4B6A9B" : "#FFFFFF")};
   transition: 0.5s;
 
   .section {

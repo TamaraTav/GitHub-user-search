@@ -7,7 +7,7 @@ export const SearchBar = styled.div`
     padding-top: 31px;
 
     h1 {
-      color: ${(props) => (props.theme == true ? "#222731" : "white")};
+      color: ${(props) => (props.theme === true ? "#222731" : "white")};
     }
     .forFlex2 {
       margin: 15px 0px 0px 0px;
@@ -43,13 +43,13 @@ export const SearchBar = styled.div`
       height: 60px;
       border-radius: 15px;
       background-color: ${(props) =>
-        props.theme == true ? "#FEFEFE" : "#1E2A47"};
+        props.theme === true ? "#FEFEFE" : "#1E2A47"};
       box-shadow: ${(props) =>
-        props.theme == true
+        props.theme === true
           ? "0px 16px 30px -10px rgba(70, 96, 187, 0.198567)"
           : null};
       outline: none;
-      color: ${(props) => (props.theme == true ? "#222731" : "white")};
+      color: ${(props) => (props.theme === true ? "#222731" : "white")};
       border: none;
       letter-spacing: 2px;
       font-size: 10px;

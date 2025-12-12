@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const UserInfo = styled.div`
-  background-color: ${(props) => (props.theme == true ? "#FFFFFF" : "#1e2a47")};
+  background-color: ${(props) => (props.theme === true ? "#FFFFFF" : "#1e2a47")};
   width: 82%;
   padding: 30px 9%;
   margin-top: 20px;
   border-radius: 15px;
   box-shadow: ${(props) =>
-    props.theme == true
+    props.theme === true
       ? "0px 16px 30px -10px rgba(70, 96, 187, 0.198567)"
       : null};
   .section1 {
@@ -63,7 +63,7 @@ export const UserInfo = styled.div`
     height: 85px;
     border-radius: 10px;
     background-color: ${(props) =>
-      props.theme == true ? "#F6F8FF" : "#141D2F"};
+      props.theme === true ? "#F6F8FF" : "#141D2F"};
     @media (min-width: 1350px) {
       margin-left: 175px;
     }
@@ -79,7 +79,7 @@ export const UserInfo = styled.div`
       font-size: 16px;
       font-weight: bold;
       margin-top: 8px;
-      color: ${(props) => (props.theme == true ? "#2B3442" : "white")};
+      color: ${(props) => (props.theme === true ? "#2B3442" : "white")};
       @media (min-width: 600px) {
         font-size: 22px;
       }
@@ -103,7 +103,7 @@ export const UserInfo = styled.div`
       }
       img {
         ${(props) =>
-          props.theme == true
+          props.theme === true
             ? null
             : "filter: invert(100%) sepia(100%) saturate(25%) hue-rotate(18deg) brightness(150%) contrast(106%)"};
       }
@@ -119,7 +119,7 @@ export const UserInfo = styled.div`
         }
         a {
           text-decoration: none;
-          color: ${(props) => (props.theme == true ? "#4B6A9B" : "white")};
+          color: ${(props) => (props.theme === true ? "#4B6A9B" : "white")};
         }
       }
     }

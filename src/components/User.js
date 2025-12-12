@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { UserInfo } from "./styles/UserInfo.Styled";
 import location from "../assets/icon-location.svg";
 import website from "../assets/icon-website.svg";
@@ -23,8 +22,8 @@ function User(props) {
         </div>
       </div>
 
-      <p className="bio" style={props.bio == null ? { opacity: 0.5 } : null}>
-        {props.bio != null ? props.bio : "This profile has no bio"}
+      <p className="bio" style={props.bio === null ? { opacity: 0.5 } : null}>
+        {props.bio !== null ? props.bio : "This profile has no bio"}
       </p>
       <div className="mainInfo">
         <div>
@@ -43,28 +42,28 @@ function User(props) {
 
       <div className="mainInfo2">
         <div className="forResponsive">
-          <div style={props.location == null ? { opacity: 0.5 } : null}>
+          <div style={props.location === null ? { opacity: 0.5 } : null}>
             <img src={location} />{" "}
-            <p>{props.location == null ? "Not Available" : props.location}</p>
+            <p>{props.location === null ? "Not Available" : props.location}</p>
           </div>
-          <div style={props.blog == "" ? { opacity: 0.5 } : null}>
+          <div style={props.blog === "" ? { opacity: 0.5 } : null}>
             <img src={website} />{" "}
             <p>
               <a href={props.blog}>
-                {props.blog == "" ? "Not Available" : props.blog}
+                {props.blog === "" ? "Not Available" : props.blog}
               </a>
             </p>
           </div>
         </div>
 
         <div className="forResponsive2">
-          <div style={props.twitter == null ? { opacity: 0.5 } : null}>
+          <div style={props.twitter === null ? { opacity: 0.5 } : null}>
             <img src={twitter} />{" "}
-            <p>{props.twitter == null ? "Not Available" : props.twitter}</p>
+            <p>{props.twitter === null ? "Not Available" : props.twitter}</p>
           </div>
-          <div style={props.company == null ? { opacity: 0.5 } : null}>
+          <div style={props.company === null ? { opacity: 0.5 } : null}>
             <img src={company} />{" "}
-            <p>{props.company == null ? "Not Available" : props.company}</p>
+            <p>{props.company === null ? "Not Available" : props.company}</p>
           </div>
         </div>
       </div>

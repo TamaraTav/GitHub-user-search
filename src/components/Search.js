@@ -22,8 +22,8 @@ function Search(props) {
             props.setTheme(!props.theme);
           }}
         >
-          <p className="theme">{props.theme == false ? "LIGHT" : "Dark"}</p>
-          <img src={props.theme == false ? sun : moon} />
+          <p className="theme">{props.theme === false ? "LIGHT" : "Dark"}</p>
+          <img src={props.theme === false ? sun : moon} />
         </div>
       </div>
 
