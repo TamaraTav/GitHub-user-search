@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import sun from "../assets/icon-sun.svg";
 import moon from "../assets/icon-moon.svg";
 import { SearchBar } from "./styles/Search.Styled";
 import search from "../assets/icon-search.svg";
 
 function Search(props) {
-  const [inputVal, setInputVal] = useState("octocat");
+  const [inputVal, setInputVal] = useState(props.value || "octocat");
+
+  // Sync inputVal with value prop when it changes
+  useEffect(() => {
+    setInputVal(props.value || "octocat");
+  }, [props.value]);
 
   return (
     <SearchBar theme={props.theme}>
