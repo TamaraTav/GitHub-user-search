@@ -1,9 +1,8 @@
 import { useState } from "react";
 import React from "react";
 import Search from "./Search";
-import styles from "../index.css";
 import User from "./User";
-import { Body } from "./styles/App.Syled";
+import { Body } from "./styles/App.Styled";
 function App() {
   // get login from search bar
   const [value, setValue] = useState("octocat");
