@@ -46,12 +46,29 @@ function User(props) {
             <img src={location} />{" "}
             <p>{props.location === null ? "Not Available" : props.location}</p>
           </div>
-          <div style={props.blog === "" ? { opacity: 0.5 } : null}>
+          <div
+            style={
+              props.blog === "" || props.blog === null ? { opacity: 0.5 } : null
+            }
+          >
             <img src={website} />{" "}
             <p>
-              <a href={props.blog}>
-                {props.blog === "" ? "Not Available" : props.blog}
-              </a>
+              {props.blog && props.blog !== "" ? (
+                <a
+                  href={
+                    props.blog.startsWith("http://") ||
+                    props.blog.startsWith("https://")
+                      ? props.blog
+                      : `https://${props.blog}`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {props.blog}
+                </a>
+              ) : (
+                "Not Available"
+              )}
             </p>
           </div>
         </div>
